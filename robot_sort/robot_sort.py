@@ -97,7 +97,146 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        def sort_right(): 
+            ''' assumes you can't move left ''' 
+            self.move_right()
+            if self.compare_item() == 1: ## will return 1 if carried_item > current_item 
+                self.swap_item() 
+        
+        def sort_left(): 
+            ''' assumes you can't move right ''' 
+            self.move_left()
+            if self.compare_item() == -1: 
+                self.swap_item()
+        
+        
+        if self.can_move_right() == True: 
+            sort_left()
+        elif self.can_move_left() == True: 
+            sort_right() 
+        
+        return self
+        
+### OK the idea is that i want to have it so that you can move on. 
+## What i did is strip all these methods out of the class and made them functions and the attributes and made them variables, then I popped it all into python tutor and played around with ordering: 
+ ## THIS IS WHAT I TRIED 
+    # list_to_sort = l            # The list the robot is tasked with sorting
+    # item = None                 # The item the robot is holding
+    # position = 0                # The list position the robot is at
+    # light = "OFF"               # The state of the robot's light
+    # time = 0
+       
+    # def can_move_right():
+    #         """
+    #         Returns True if the robot can move right or False if it's
+    #         at the end of the list.
+    #         """
+    #     return position < len(list_to_sort) - 1
+    
+    # def can_move_left():
+    #         """
+    #         Returns True if the robot can move left or False if it's
+    #         at the start of the list.
+    #         """
+    #     return position > 0
+    
+    # def move_right():
+    #         """
+    #         If the robot can move to the right, it moves to the right and
+    #         returns True. Otherwise, it stays in place and returns False.
+    #         This will increment the time counter by 1.
+    #         """
+    #     time += 1
+    #     if position < len(list_to_sort) - 1:
+    #         position += 1
+    #         return True
+    #     else:
+    #         return False
+    
+    # def move_left():
+    #         """
+    #         If the robot can move to the left, it moves to the left and
+    #         returns True. Otherwise, it stays in place and returns False.
+    #         This will increment the time counter by 1.
+    #         """
+    #     time += 1
+    #     if position > 0:
+    #         position -= 1
+    #         return True
+    #     else:
+    #         return False
+    
+    # def swap_item():
+    #         """
+    #         The robot swaps its currently held item with the list item in front
+    #         of it.
+    #         This will increment the time counter by 1.
+    #         """
+    #     time += 1
+    #         # Swap the held item with the list item at the robot's position
+    #     item, list_to_sort[position] = list_to_sort[position], item
+    
+    # def compare_item():
+    #         """
+    #         Compare the held item with the item in front of the robot:
+    #         If the held item's value is greater, return 1.
+    #         If the held item's value is less, return -1.
+    #         If the held item's value is equal, return 0.
+    #         If either item is None, return None.
+    #         """
+    #     if item is None or list_to_sort[position] is None:
+    #         return None
+    #     elif item > list_to_sort[position]:
+    #         return 1
+    #     elif item < list_to_sort[position]:
+    #         return -1
+    #     else:
+    #         return 0
+    
+    # def set_light_on():
+    #         """
+    #         Turn on the robot's light
+    #         """
+    #     self._light = "ON"
+    # def set_light_off():
+    #         """
+    #         Turn off the robot's light
+    #         """
+    #     return light = "OFF"
+        
+    # def light_is_on():
+    #         """
+    #         Returns True if the robot's light is on and False otherwise.
+    #         """
+    #     return light == "ON"
+    
+    # def sort():
+    #         """
+    #         Sort the robot's list.
+    #         """
+    #     for i in len(list_to_sort): 
+    #     # robot starts at position 0 
+    #         for item in list_to_sort: 
+    #             if compare_item() == -1: ## will return 1 if carried_item > current_item 
+    #             ### do stuff
+    #             if compare_item() == 1: 
+    #             ### do other stuff 
+    ''' if can_move_left: move_left. 
+        if cannot move left: move_right. 
+        compare items. 
+            if compare_items == 1, 
+                swap() 
+            if compare items == -1, 
+                move_whichever_way_you_have_to_here 
+                Rinse and Repeat. 
+    
+    ''' 
+
+            
+            
+
+            
+
 
 
 if __name__ == "__main__":
